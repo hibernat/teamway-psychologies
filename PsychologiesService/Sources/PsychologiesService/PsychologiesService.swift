@@ -14,7 +14,7 @@ public protocol PsychologiesServiceProtocol {
     
 }
 
-final class PsychologiesService: PsychologiesServiceProtocol, Sendable {
+final public class PsychologiesService: PsychologiesServiceProtocol, Sendable {
     
     let successRate: UInt // 0 == always throws, UInt.max == never throws (unless there is some other error)
     let errorThrownOnFailure: Error & Sendable
@@ -28,7 +28,7 @@ final class PsychologiesService: PsychologiesServiceProtocol, Sendable {
         self.errorThrownOnFailure = errorThrownOnFailure
     }
     
-    func getTraitQuiz() async throws -> TraitQuiz {
+    public func getTraitQuiz() async throws -> TraitQuiz {
         try throwErrorIfNeeded()
         let url = Bundle.module.url(forResource: "TraitQuiz", withExtension: "json")!
         let data = try Data(contentsOf: url)
@@ -36,7 +36,7 @@ final class PsychologiesService: PsychologiesServiceProtocol, Sendable {
         return traitQuiz
     }
     
-    func submitTraitQuizAnswers(traitTestId: String, answerIds: [String]) async throws -> TraitQuizEvaluation {
+    public func submitTraitQuizAnswers(traitTestId: String, answerIds: [String]) async throws -> TraitQuizEvaluation {
         try throwErrorIfNeeded()
         let url = Bundle.module.url(forResource: "TraitQuizEvaluation", withExtension: "json")!
         let data = try Data(contentsOf: url)
