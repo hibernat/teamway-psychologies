@@ -1,14 +1,15 @@
 //
-//  PsychoQuizTests.swift
+//  QuizViewModelTests.swift
 //  PsychoQuizTests
 //
 //  Created by Michael Bernat on 06.12.2022.
 //
 
 import XCTest
+import PsychologiesService
 @testable import PsychoQuiz
 
-final class PsychoQuizTests: XCTestCase {
+final class QuizViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -34,3 +35,4 @@ final class PsychoQuizTests: XCTestCase {
     }
 
 }
+

@@ -16,19 +16,23 @@ public protocol PsychologiesServiceProtocol {
 
 final public class PsychologiesService: PsychologiesServiceProtocol, Sendable {
     
-    let successRate: UInt // 0 == always throws, UInt.max == never throws (unless there is some other error)
+    let sleepForMilliseconds: Int
+    let successRate: Int // 0 == always throws, Int.max == never throws (unless there is some other error)
     let errorThrownOnFailure: Error & Sendable
     
     /// local PsychologiesService randomly throwing error
     /// - Parameters:
-    ///   - failureRate: UInt.max means it always throws an error, 0 means no intentional failures/throws
+    ///   - sleepForMilliseconds: simulates delay on network, each request is delayd then
+    ///   - failureRate: Int.max means it always throws an error, 0 means no intentional failures/throws
     ///   - errorThrownOnFailure: error thrown when random generator throws error
-    init(failureRate: UInt, errorThrownOnFailure: Error & Sendable = URLError(.unknown)) {
-        self.successRate = UInt.max - failureRate
+    public init(sleepForMilliseconds: Int, failureRate: Int, errorThrownOnFailure: Error & Sendable = URLError(.unknown)) {
+        self.sleepForMilliseconds = max(0, sleepForMilliseconds)
+        self.successRate = Int.max - max(0, failureRate)
         self.errorThrownOnFailure = errorThrownOnFailure
     }
     
     public func getTraitQuiz() async throws -> TraitQuiz {
+        try await Task.sleep(for: .milliseconds(sleepForMilliseconds))
         try throwErrorIfNeeded()
         let url = Bundle.module.url(forResource: "TraitQuiz", withExtension: "json")!
         let data = try Data(contentsOf: url)
@@ -37,6 +41,7 @@ final public class PsychologiesService: PsychologiesServiceProtocol, Sendable {
     }
     
     public func submitTraitQuizAnswers(traitTestId: String, answerIds: [String]) async throws -> TraitQuizEvaluation {
+        try await Task.sleep(for: .milliseconds(sleepForMilliseconds))
         try throwErrorIfNeeded()
         let url = Bundle.module.url(forResource: "TraitQuizEvaluation", withExtension: "json")!
         let data = try Data(contentsOf: url)
@@ -45,7 +50,7 @@ final public class PsychologiesService: PsychologiesServiceProtocol, Sendable {
     }
     
     private func throwErrorIfNeeded() throws {
-        if successRate == UInt.max { return }
+        if successRate == Int.max { return }
         if (0...successRate).randomElement() == 0 {
             throw errorThrownOnFailure
         }

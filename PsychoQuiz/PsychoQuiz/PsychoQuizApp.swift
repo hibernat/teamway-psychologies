@@ -6,12 +6,23 @@
 //
 
 import SwiftUI
+import PsychologiesService
 
 @main
 struct PsychoQuizApp: App {
+    
+    @StateObject var appViewModel = AppViewModel(
+        psychologiesService: PsychologiesService(
+            sleepForMilliseconds: 600,
+            failureRate: Int.max - 2,
+            errorThrownOnFailure: URLError(.unknown)
+        )
+    )
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LandingView()
+                .environmentObject(appViewModel)
         }
     }
 }

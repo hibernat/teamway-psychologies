@@ -1,0 +1,23 @@
+{
+    "id": "Trait-Test-1",
+    "questions": [
+        {
+            "id": "Q1",
+            "text": "Question 1",
+            "answers": [
+                {"id": "Q1-A1", "text": "First answer choice for question 1"},
+                {"id": "Q1-A2", "text": "Second answer choice for question 1"},
+                {"id": "Q1-A3", "text": "Third answer choice for question 1"}
+            ]
+        },
+        {
+            "id": "Q2",
+            "text": "Question 2",
+            "answers": [
+                {"id": "Q2-A1", "text": "First answer choice for question 2"},
+                {"id": "Q2-A2", "text": "Second answer choice for question 2"},
+                {"id": "Q2-A3", "text": "Third answer choice for question 3"}
+            ]
+        }
+    ]
+}

@@ -8,11 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A0F5D370293FC6F600B9256E /* PsychoQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D36F293FC6F600B9256E /* PsychoQuizApp.swift */; };
-		A0F5D372293FC6F600B9256E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D371293FC6F600B9256E /* ContentView.swift */; };
+		A0F5D372293FC6F600B9256E /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D371293FC6F600B9256E /* LandingView.swift */; };
 		A0F5D374293FC6F900B9256E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F5D373293FC6F900B9256E /* Assets.xcassets */; };
 		A0F5D377293FC6F900B9256E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F5D376293FC6F900B9256E /* Preview Assets.xcassets */; };
-		A0F5D381293FC6F900B9256E /* PsychoQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D380293FC6F900B9256E /* PsychoQuizTests.swift */; };
+		A0F5D381293FC6F900B9256E /* AppViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D380293FC6F900B9256E /* AppViewModelTests.swift */; };
 		A0F5D3A0293FC9B800B9256E /* PsychologiesService in Frameworks */ = {isa = PBXBuildFile; productRef = A0F5D39F293FC9B800B9256E /* PsychologiesService */; };
+		A0F5D3A4293FD02600B9256E /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D3A3293FD02600B9256E /* AppViewModel.swift */; };
+		A0F5D3A7293FD62E00B9256E /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D3A6293FD62E00B9256E /* ErrorView.swift */; };
+		A0F5D3A9293FD71B00B9256E /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D3A8293FD71B00B9256E /* QuizViewModel.swift */; };
+		A0F5D3AB29408CAA00B9256E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0F5D3AA29408CAA00B9256E /* Localizable.strings */; };
+		A0F5D3AE29408DBF00B9256E /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D3AD29408DBF00B9256E /* R.swift */; };
+		A0F5D3B1294092B400B9256E /* EnvironmentValues+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D3B0294092B400B9256E /* EnvironmentValues+.swift */; };
+		A0F5D3B629411D2D00B9256E /* QuizViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D3B529411D2D00B9256E /* QuizViewModelTests.swift */; };
+		A0F5D3B92941238200B9256E /* PsychologiesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F5D3B82941238200B9256E /* PsychologiesServiceMock.swift */; };
+		A0F5D3BC294123F700B9256E /* TraitQuizTest.json in Resources */ = {isa = PBXBuildFile; fileRef = A0F5D3BB294123F700B9256E /* TraitQuizTest.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +37,21 @@
 /* Begin PBXFileReference section */
 		A0F5D36C293FC6F600B9256E /* PsychoQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PsychoQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F5D36F293FC6F600B9256E /* PsychoQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychoQuizApp.swift; sourceTree = "<group>"; };
-		A0F5D371293FC6F600B9256E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A0F5D371293FC6F600B9256E /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		A0F5D373293FC6F900B9256E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0F5D376293FC6F900B9256E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A0F5D37C293FC6F900B9256E /* PsychoQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PsychoQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0F5D380293FC6F900B9256E /* PsychoQuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychoQuizTests.swift; sourceTree = "<group>"; };
+		A0F5D380293FC6F900B9256E /* AppViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModelTests.swift; sourceTree = "<group>"; };
 		A0F5D39A293FC71A00B9256E /* PsychologiesService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PsychologiesService; path = ../PsychologiesService; sourceTree = "<group>"; };
+		A0F5D3A3293FD02600B9256E /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		A0F5D3A6293FD62E00B9256E /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		A0F5D3A8293FD71B00B9256E /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
+		A0F5D3AA29408CAA00B9256E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A0F5D3AD29408DBF00B9256E /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
+		A0F5D3B0294092B400B9256E /* EnvironmentValues+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+.swift"; sourceTree = "<group>"; };
+		A0F5D3B529411D2D00B9256E /* QuizViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModelTests.swift; sourceTree = "<group>"; };
+		A0F5D3B82941238200B9256E /* PsychologiesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychologiesServiceMock.swift; sourceTree = "<group>"; };
+		A0F5D3BB294123F700B9256E /* TraitQuizTest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TraitQuizTest.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +95,13 @@
 		A0F5D36E293FC6F600B9256E /* PsychoQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				A0F5D3AA29408CAA00B9256E /* Localizable.strings */,
 				A0F5D36F293FC6F600B9256E /* PsychoQuizApp.swift */,
-				A0F5D371293FC6F600B9256E /* ContentView.swift */,
 				A0F5D373293FC6F900B9256E /* Assets.xcassets */,
+				A0F5D3A1293FCE4900B9256E /* ViewModels */,
+				A0F5D3A2293FCFBC00B9256E /* Views */,
+				A0F5D3AF2940928300B9256E /* Extensions */,
+				A0F5D3AC29408D9A00B9256E /* Helpers */,
 				A0F5D375293FC6F900B9256E /* Preview Content */,
 			);
 			path = PsychoQuiz;
@@ -96,7 +118,10 @@
 		A0F5D37F293FC6F900B9256E /* PsychoQuizTests */ = {
 			isa = PBXGroup;
 			children = (
-				A0F5D380293FC6F900B9256E /* PsychoQuizTests.swift */,
+				A0F5D3BA294123D600B9256E /* Resources */,
+				A0F5D3B72941236800B9256E /* Mocks */,
+				A0F5D380293FC6F900B9256E /* AppViewModelTests.swift */,
+				A0F5D3B529411D2D00B9256E /* QuizViewModelTests.swift */,
 			);
 			path = PsychoQuizTests;
 			sourceTree = "<group>";
@@ -107,6 +132,56 @@
 				A0F5D39A293FC71A00B9256E /* PsychologiesService */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		A0F5D3A1293FCE4900B9256E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A0F5D3A3293FD02600B9256E /* AppViewModel.swift */,
+				A0F5D3A8293FD71B00B9256E /* QuizViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A0F5D3A2293FCFBC00B9256E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0F5D3A6293FD62E00B9256E /* ErrorView.swift */,
+				A0F5D371293FC6F600B9256E /* LandingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A0F5D3AC29408D9A00B9256E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A0F5D3AD29408DBF00B9256E /* R.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A0F5D3AF2940928300B9256E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A0F5D3B0294092B400B9256E /* EnvironmentValues+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A0F5D3B72941236800B9256E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A0F5D3B82941238200B9256E /* PsychologiesServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A0F5D3BA294123D600B9256E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0F5D3BB294123F700B9256E /* TraitQuizTest.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F5D377293FC6F900B9256E /* Preview Assets.xcassets in Resources */,
+				A0F5D3AB29408CAA00B9256E /* Localizable.strings in Resources */,
 				A0F5D374293FC6F900B9256E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F5D3BC294123F700B9256E /* TraitQuizTest.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +289,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0F5D372293FC6F600B9256E /* ContentView.swift in Sources */,
+				A0F5D3AE29408DBF00B9256E /* R.swift in Sources */,
+				A0F5D372293FC6F600B9256E /* LandingView.swift in Sources */,
+				A0F5D3B1294092B400B9256E /* EnvironmentValues+.swift in Sources */,
+				A0F5D3A4293FD02600B9256E /* AppViewModel.swift in Sources */,
 				A0F5D370293FC6F600B9256E /* PsychoQuizApp.swift in Sources */,
+				A0F5D3A9293FD71B00B9256E /* QuizViewModel.swift in Sources */,
+				A0F5D3A7293FD62E00B9256E /* ErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +303,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0F5D381293FC6F900B9256E /* PsychoQuizTests.swift in Sources */,
+				A0F5D3B92941238200B9256E /* PsychologiesServiceMock.swift in Sources */,
+				A0F5D381293FC6F900B9256E /* AppViewModelTests.swift in Sources */,
+				A0F5D3B629411D2D00B9256E /* QuizViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

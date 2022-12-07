@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  PsychoQuiz
+
+  Created by Michael Bernat on 06.12.2022.
+  
+*/
+
+"LandingView.ErrorRetry" = "Retry loading quiz";
+"LandingView.SomeError" = "Something wrong has happened, quiz is not loaded";
+"LandingView.Loading" = "Please wait a while,\nquiz loading just started...";
+"LandingView.WelcomeTitle" = "Welcome to PsychoQuiz!";
+"LandingView.WelcomeText" = "Are you an introvert or an extrovert? Take a quick quiz!";
+"LandingView.WelcomePlayButton" = "Start";
