@@ -16,18 +16,18 @@ final class PsychologiesServiceMock: PsychologiesServiceProtocol {
     static let invalidTraitTestId = "invalid"
     static let errorTraitTestId = "error"
     
-    let shouldFail: Bool
+    let shouldThrowError: Bool
     
     func getTraitQuiz() async throws -> TraitQuiz {
-        if shouldFail { throw URLError(.unknown) }
-        let url = Bundle(for: PsychologiesServiceMock.self).url(forResource: "TraitQuizTest", withExtension: "json")!
+        if shouldThrowError { throw URLError(.unknown) }
+        let url = Bundle.module.url(forResource: "TraitQuizTest", withExtension: "json")!
         let data = try Data(contentsOf: url)
         let traitQuiz = try JSONDecoder().decode(TraitQuiz.self, from: data)
         return traitQuiz
     }
     
     func submitTraitQuizAnswers(traitTestId: String, answerIds: [String]) async throws -> TraitQuizEvaluation {
-        if shouldFail { throw URLError(.unknown) }
+        if shouldThrowError { throw URLError(.unknown) }
         if traitTestId == Self.invalidTraitTestId {
             return TraitQuizEvaluation(nil, nil)
         }
@@ -37,8 +37,8 @@ final class PsychologiesServiceMock: PsychologiesServiceProtocol {
         return TraitQuizEvaluation(Self.traitQuizEvaluationTitle, Self.traitQuizEvaluationText)
     }
     
-    init(shouldFail: Bool) {
-        self.shouldFail = shouldFail
+    init(shouldThrowError: Bool) {
+        self.shouldThrowError = shouldThrowError
     }
     
 }

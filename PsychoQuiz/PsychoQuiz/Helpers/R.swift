@@ -19,6 +19,12 @@ enum R {
             static let landingViewWelcomeTitle: LocalizedStringKey = "LandingView.WelcomeTitle"
             static let landingViewWelcomeText: LocalizedStringKey = "LandingView.WelcomeText"
             static let landingViewWelcomePlayButton: LocalizedStringKey = "LandingView.WelcomePlayButton"
+            
+            static let quizViewNextButton: LocalizedStringKey = "QuizView.NextButton"
+            static let quizViewBackButton: LocalizedStringKey = "QuizView.BackButton"
+            static let quizViewSubmitButton: LocalizedStringKey = "QuizView.SubmitButton"
+            static let quizViewErrorRetry: LocalizedStringKey = "QuizView.ErrorRetry"
+            static let quizViewSomeError: LocalizedStringKey = "QuizView.SomeError"
         }
     
         static let localizable = R.String.Localizable.self

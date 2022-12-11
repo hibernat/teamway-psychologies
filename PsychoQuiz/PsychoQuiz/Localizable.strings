@@ -12,3 +12,9 @@
 "LandingView.WelcomeTitle" = "Welcome to PsychoQuiz!";
 "LandingView.WelcomeText" = "Are you an introvert or an extrovert? Take a quick quiz!";
 "LandingView.WelcomePlayButton" = "Start";
+
+"QuizView.NextButton" = "Next";
+"QuizView.BackButton" = "Back";
+"QuizView.SubmitButton" = "Submit";
+"QuizView.ErrorRetry" = "Retry";
+"QuizView.SomeError" = "Something wrong has happened, quiz has not been submitted for evaluation";

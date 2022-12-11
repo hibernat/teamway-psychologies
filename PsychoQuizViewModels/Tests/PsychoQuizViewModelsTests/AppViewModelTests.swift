@@ -7,14 +7,14 @@
 
 import XCTest
 import PsychologiesService
-@testable import PsychoQuiz
+@testable import PsychoQuizViewModels
 
 final class AppViewModelTests: XCTestCase {
     
     @MainActor
     func testLoadTraitQuizSuccessfully() async {
         let appViewModel = AppViewModel(
-            psychologiesService: PsychologiesServiceMock(shouldFail: false)
+            psychologiesService: PsychologiesServiceMock(shouldThrowError: false)
         )
         XCTAssertEqual(appViewModel.state, .quizNotLoading)
         await appViewModel.loadTraitQuiz()
@@ -24,11 +24,30 @@ final class AppViewModelTests: XCTestCase {
     @MainActor
     func testLoadTraitQuizLoadingError() async {
         let appViewModel = AppViewModel(
-            psychologiesService: PsychologiesServiceMock(shouldFail: true)
+            psychologiesService: PsychologiesServiceMock(shouldThrowError: true)
         )
         XCTAssertEqual(appViewModel.state, .quizNotLoading)
         await appViewModel.loadTraitQuiz()
         XCTAssertTrue(isQuizLoadingError(state: appViewModel.state))
+    }
+    
+    @MainActor
+    func testPresentQuizViewWhenTraitQuizIsAvailable() async {
+        let appViewModel = AppViewModel(
+            psychologiesService: PsychologiesServiceMock(shouldThrowError: false)
+        )
+        await appViewModel.loadTraitQuiz()
+        appViewModel.startQuiz()
+        XCTAssertNotNil(appViewModel.quizViewModel)
+    }
+    
+    @MainActor
+    func testPresentQuizViewWhenTraitQuizIsNotAvailable() async {
+        let appViewModel = AppViewModel(
+            psychologiesService: PsychologiesServiceMock(shouldThrowError: true)
+        )
+        appViewModel.startQuiz()
+        XCTAssertNil(appViewModel.quizViewModel)
     }
     
 }

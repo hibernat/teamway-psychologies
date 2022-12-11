@@ -6,15 +6,15 @@
 //
 
 import SwiftUI
-import PsychologiesService
+import PsychoQuizViewModels
 
 struct LandingView: View {
     
-    @EnvironmentObject var appViewModel: AppViewModel
+    @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
         Group {
-            switch appViewModel.state {
+            switch viewModel.state {
             case .quizNotLoading, .quizLoadingInProgress:
                 quizNotAvailableView
             case .quizLoadingError(let quizLoadingError):
@@ -36,7 +36,7 @@ struct LandingView: View {
                 .multilineTextAlignment(.center)
         }
         .task {
-            await appViewModel.loadTraitQuiz()
+            await viewModel.loadTraitQuiz()
         }
     }
     
@@ -53,12 +53,17 @@ struct LandingView: View {
                 .font(.title3)
                 .padding()
             
-            Button(action: { appViewModel.startQuiz() }) {
+            Button(action: { viewModel.startQuiz() }) {
                 Text(R.string.localizable.landingViewWelcomePlayButton)
                     .padding()
             }
             .buttonStyle(.bordered)
             .padding(.top)
+        }
+        // presenting quiz view
+        .fullScreenCover(item: $viewModel.quizViewModel) { quizViewModel in
+            QuizView()
+                .environmentObject(quizViewModel)
         }
     }
     
@@ -70,23 +75,15 @@ struct LandingView: View {
     
     private func onErrorRetry() {
         Task {
-            await appViewModel.loadTraitQuiz()
+            await viewModel.loadTraitQuiz()
         }
     }
 }
 
 struct LandingView_Previews: PreviewProvider {
     
-    static let appViewModel = AppViewModel(
-        psychologiesService: PsychologiesService(
-            sleepForMilliseconds: 0,
-            failureRate: 0,
-            errorThrownOnFailure: URLError(.unknown)
-        )
-    )
-    
     static var previews: some View {
         LandingView()
-            .environmentObject(Self.appViewModel)
+            .environmentObject(AppViewModel.preview)
     }
 }

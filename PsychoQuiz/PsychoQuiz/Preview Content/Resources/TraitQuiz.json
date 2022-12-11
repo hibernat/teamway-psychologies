@@ -1,0 +1,45 @@
+{
+    "id": "Psychologies-1",
+    "questions": [
+        {
+            "id": "Q1",
+            "text": "You’re really busy at work and a colleague is telling you their life story and personal woes. You:",
+            "answers": [
+                {"id": "Q1-A1", "text": "Don’t dare to interrupt them"},
+                {"id": "Q1-A2", "text": "Think it’s more important to give them some of your time; work can wait"},
+                {"id": "Q1-A3", "text": "Listen, but with only with half an ear"},
+                {"id": "Q1-A4", "text": "Interrupt and explain that you are really busy at the moment"}
+            ]
+        },
+        {
+            "id": "Q2",
+            "text": "You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:",
+            "answers": [
+                {"id": "Q2-A1", "text": "Look at your watch every two minutes"},
+                {"id": "Q2-A2", "text": "Bubble with inner anger, but keep quiet"},
+                {"id": "Q2-A3", "text": "Explain to other equally impatient people in the room that the doctor is always running late"},
+                {"id": "Q2-A4", "text": "Complain in a loud voice, while tapping your foot impatiently"}
+            ]
+        },
+        {
+            "id": "Q3",
+            "text": "You’re having an animated discussion with a colleague regarding a project that you’re in charge of. You:",
+            "answers": [
+                {"id": "Q3-A1", "text": "Don’t dare contradict them"},
+                {"id": "Q3-A2", "text": "Think that they are obviously right"},
+                {"id": "Q3-A3", "text": "Defend your own point of view, tooth and nail"},
+                {"id": "Q3-A4", "text": "Continuously interrupt your colleague"}
+            ]
+        },
+        {
+            "id": "Q4",
+            "text": "You are taking part in a guided tour of a museum. You:",
+            "answers": [
+                {"id": "Q4-A1", "text": "Are a bit too far towards the back so don’t really hear what the guide is saying"},
+                {"id": "Q4-A2", "text": "Follow the group without question"},
+                {"id": "Q4-A3", "text": "Make sure that everyone is able to hear properly"},
+                {"id": "Q4-A4", "text": "Are right up the front, adding your own comments in a loud voice"}
+            ]
+        }
+    ]
+}

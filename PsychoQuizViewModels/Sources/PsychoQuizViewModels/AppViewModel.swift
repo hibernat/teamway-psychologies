@@ -5,19 +5,30 @@
 //  Created by Michael Bernat on 06.12.2022.
 //
 
+import Foundation
 import Combine
 import PsychologiesService
 
 @MainActor
-final class AppViewModel: ObservableObject {
+public final class AppViewModel: ObservableObject {
     
-    enum QuizLoadingError: Error, Equatable {
+    // MARK: static
+    public static var `default` = AppViewModel(
+        psychologiesService: PsychologiesService(
+            sleepForMilliseconds: 600,
+            failureRate: Int.max - 2,
+            errorThrownOnFailure: URLError(.unknown)
+        )
+    )
+
+    // MARK: sub-types
+    public enum QuizLoadingError: Error, Equatable {
         case someError
     }
     
-    enum State: Equatable {
+    public enum State: Equatable {
         
-        static func == (lhs: State, rhs: State) -> Bool {
+        public static func == (lhs: State, rhs: State) -> Bool {
             switch (lhs, rhs) {
             case (.quizNotLoading, .quizNotLoading): return true
             case (.quizLoadingInProgress, .quizLoadingInProgress): return true
@@ -37,16 +48,16 @@ final class AppViewModel: ObservableObject {
     let psychologiesService: PsychologiesServiceProtocol
     
     // MARK: stored properties
-    @Published private(set) var state: State = .quizNotLoading
-    @Published private(set) var quizViewModel: QuizViewModel?
+    @Published public private(set) var state: State = .quizNotLoading
+    @Published public var quizViewModel: QuizViewModel?
     
     // MARK: initializers
-    init(psychologiesService: PsychologiesServiceProtocol) {
+    public init(psychologiesService: PsychologiesServiceProtocol) {
         self.psychologiesService = psychologiesService
     }
     
     // MARK: methods
-    func loadTraitQuiz() async {
+    public func loadTraitQuiz() async {
         if case .quizLoadingInProgress = state { return }
         do {
             state = .quizLoadingInProgress
@@ -57,8 +68,11 @@ final class AppViewModel: ObservableObject {
         }
     }
     
-    func startQuiz() {
+    public func startQuiz() {
         guard case .quizAvailable(let traitQuiz) = state else { return }
-        // quizViewModel =
+        quizViewModel = QuizViewModel(
+            psychologiesService: psychologiesService,
+            traitQuiz: { traitQuiz }
+        )
     }
 }
