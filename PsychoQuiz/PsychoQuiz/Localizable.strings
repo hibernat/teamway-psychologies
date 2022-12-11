@@ -18,3 +18,4 @@
 "QuizView.SubmitButton" = "Submit";
 "QuizView.ErrorRetry" = "Retry";
 "QuizView.SomeError" = "Something wrong has happened, quiz has not been submitted for evaluation";
+"QuizView.DismissButton" = "Close";

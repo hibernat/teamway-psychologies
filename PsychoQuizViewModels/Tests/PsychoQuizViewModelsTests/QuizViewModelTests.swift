@@ -79,5 +79,15 @@ final class QuizViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.areChosenAnswersValid)
     }
     
+    func testSubmit() async {
+        let chosenQ1AnswerId = "Q1-A2"
+        let chosenQ2AnswerId = "Q2-A1"
+        viewModel.chosenAnswerIdForCurrentQuestion = chosenQ1AnswerId
+        viewModel.goNext()
+        viewModel.chosenAnswerIdForCurrentQuestion = chosenQ2AnswerId
+        await viewModel.submit()
+        XCTAssertEqual(viewModel.state, .showingEvaluation(title: "Mocked evaluation title", text: "Mocked evaluation text"))
+    }
+    
 }
 

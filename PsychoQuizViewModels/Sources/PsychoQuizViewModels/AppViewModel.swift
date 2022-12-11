@@ -16,7 +16,7 @@ public final class AppViewModel: ObservableObject {
     public static var `default` = AppViewModel(
         psychologiesService: PsychologiesService(
             sleepForMilliseconds: 600,
-            failureRate: Int.max - 2,
+            failureRate: Int.max - 1,
             errorThrownOnFailure: URLError(.unknown)
         )
     )

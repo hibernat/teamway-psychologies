@@ -13,7 +13,7 @@ import PsychologiesService
 public final class QuizViewModel: ObservableObject {
     
     // MARK: sub-types
-    public enum SubmitError: Error {
+    public enum Error: Swift.Error, Equatable {
         case someError
     }
     
@@ -28,10 +28,10 @@ public final class QuizViewModel: ObservableObject {
         public let answers: [Question.Answer]
     }
     
-    public enum State {
+    public enum State: Equatable {
         case playingQuiz
-        case submitError(SubmitError)
-        case showingEvaluation(String)
+        case error(Error)
+        case showingEvaluation(title: String, text: String)
     }
     
     // MARK: dependencies
@@ -41,7 +41,9 @@ public final class QuizViewModel: ObservableObject {
     @Published public var state: State = .playingQuiz
     @Published public var currentQuestionIndex: Int = 0
     @Published public var chosenAnswerIds: [String?]
+    
     private let _traitQuiz: () -> TraitQuiz
+    private var isAnswerSubmissionInProgress = false
     
     // MARK: computed properties
     public var questions: [Question] {
@@ -90,7 +92,25 @@ public final class QuizViewModel: ObservableObject {
     }
     
     public func submit() async {
+        if isAnswerSubmissionInProgress { return }
+        guard areChosenAnswersValid else { return }
+        let answerIds = chosenAnswerIds.compactMap { $0 }
         
+        isAnswerSubmissionInProgress = true
+        defer { isAnswerSubmissionInProgress = false }
+        do {    
+            let evaluation = try await psychologiesService.submitTraitQuizAnswers(
+                traitTestId: traitQuiz.id,
+                answerIds: answerIds
+            )
+            guard let title = evaluation.title, let text = evaluation.text else {
+                state = .error(.someError)
+                return
+            }
+            state = .showingEvaluation(title: title, text: text)
+        } catch {
+            state = .error(.someError)
+        }
     }
     
 }

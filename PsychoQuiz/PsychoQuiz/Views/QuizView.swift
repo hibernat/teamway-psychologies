@@ -17,20 +17,20 @@ struct QuizView: View {
         case .playingQuiz:
             PlayingQuizView()
                 .padding()
-        case .submitError(let submitError):
+        case .error(let submitError):
             ErrorView(
                 text: errorText(for: submitError),
                 buttonTitle: R.string.localizable.quizViewErrorRetry
             )
             .padding()
             .environment(\.errorViewAction, ErrorViewAction(onRetryButton: { onErrorRetry() }))
-        case .showingEvaluation(let evaluationText):
-            EvaluationView(text: evaluationText)
+        case .showingEvaluation(let title, let text):
+            EvaluationView(title: title, text: text)
                 .padding()
         }
     }
     
-    private func errorText(for error: QuizViewModel.SubmitError) -> LocalizedStringKey {
+    private func errorText(for error: QuizViewModel.Error) -> LocalizedStringKey {
         switch error {
         case .someError: return R.string.localizable.quizViewSomeError
         }

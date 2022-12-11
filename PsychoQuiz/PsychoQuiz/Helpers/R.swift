@@ -25,6 +25,7 @@ enum R {
             static let quizViewSubmitButton: LocalizedStringKey = "QuizView.SubmitButton"
             static let quizViewErrorRetry: LocalizedStringKey = "QuizView.ErrorRetry"
             static let quizViewSomeError: LocalizedStringKey = "QuizView.SomeError"
+            static let quizViewDismissButton: LocalizedStringKey = "QuizView.DismissButton"
         }
     
         static let localizable = R.String.Localizable.self
